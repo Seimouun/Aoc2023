@@ -15,7 +15,7 @@ def part1():
 
 def part2():
     sum = 0
-    with open('input2.txt') as file:
+    with open('input.txt') as file:
         lines = file.readlines()
         copies = {}
         for i, line in enumerate(lines):
