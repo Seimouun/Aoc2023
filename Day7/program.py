@@ -10,22 +10,15 @@ def part2():
             bet = s[1]
             ans.append([hand, bet])
         ans.sort(key=sort_answer_part2)
-        for i, a in enumerate(ans):
-            joker_pos = [index for index, char in enumerate([*a[0]]) if char == 'J']
-            best_hand_val, best_hand = getBestHandValue(a[0], joker_pos, 0, a[0])
-            print(i+1, a[0], '->', best_hand, best_hand_val)
         print(sum((i+1) * int(a[1]) for i, a in enumerate(ans)))
 
 def sort_answer_part1(val):
-    print(val)
     card_value = getHandValue(val[0])
     return card_value
 
 def sort_answer_part2(val: str):
     joker_pos = [index for index, char in enumerate([*val[0]]) if char == 'J']
     card_value = getBestHandValue(val[0], joker_pos, 0, val[0])
-    print(val[0], card_value[1])
-    #print('best val:', card_value)
     return card_value[0]
 
 def getBestHandValue(hand, joker_positions, index, original):
